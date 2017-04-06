@@ -32,12 +32,12 @@ class App < Sinatra::Base
     @num2 = params[:num2].to_i
 
     @actions = {
-      add:       -> (a, b) { a + b }.call(@num1, @num2),
-      subtract:  -> (a, b) { a - b }.call(@num1, @num2),
-      multiply:  -> (a, b) { a * b }.call(@num1, @num2),
-      divide:    -> (a, b) { a / b }.call(@num1, @num2)
+      add:      (@num1 + @num2),
+      subtract: (@num1 - @num2),
+      multiply: (@num1 * @num2),
+      divide:   (@num1 / @num2)
     }
-    
+
     "The result is: #{@actions[params[:operation].to_sym]}"
   end
 
