@@ -12,7 +12,8 @@ class App < Sinatra::Base
   end
 
   get '/say/:number/:phrase' do
-    @phrases = params[:number].to_i.times.collect{params[:phrase]}.join(' ')
+    @phrases = "#{params[:phrase]}\n" * params[:number].to_i
+    #@phrases = params[:number].to_i.times.collect{params[:phrase]}.join(' ')
     erb :'say_n_phrase.html'
   end
 
