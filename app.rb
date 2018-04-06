@@ -17,7 +17,8 @@ class App < Sinatra::Base
   end
 
   get '/:operation/:number1/:number2' do
-    @result = params[:number1].to_i.public_send(params[:operation], params[:number2].to_i)
+    operators = {add: '+',subtract: '-',multiply: '*',divide: '/'}
+    @result = params[:number1].to_i.public_send(operators[params[:operation].to_sym], params[:number2].to_i)
     erb :'operation.html'
   end
 
@@ -25,5 +26,4 @@ class App < Sinatra::Base
     @phrase = params.collect{|k, v| v if k.to_s.include?('word')}.join(' ')
     erb :'say_five_words.html'
   end
-
 end
