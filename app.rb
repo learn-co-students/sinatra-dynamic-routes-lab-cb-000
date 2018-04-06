@@ -3,7 +3,7 @@ require_relative 'config/environment'
 class App < Sinatra::Base
   get '/reversename/:name' do
     @name_reversed = params[:name].reverse
-    erb :'reverse_name.html'
+    erb :'reversename.html'
   end
 
   get '/square/:number' do
@@ -12,7 +12,7 @@ class App < Sinatra::Base
   end
 
   get '/say/:number/:phrase' do
-    @phrases = params[:number].to_i.times.collect{params[:phrase]+"\n"}.join()
+    @phrases = params[:number].to_i.times.collect{params[:phrase]}.join(' ')
     erb :'say_n_phrase.html'
   end
 
