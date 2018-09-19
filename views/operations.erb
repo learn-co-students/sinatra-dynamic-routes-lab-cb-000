@@ -1,0 +1,9 @@
+<% if @operation == "add" %>
+  <p> <%= @number1.to_i + @number2.to_i %> </p>
+<% elsif @operation == "subtract" %>
+  <p> <%= @number1.to_i - @number2.to_i %> </p>
+<% elsif @operation == "multiply" %>
+  <p> <%= @number1.to_i * @number2.to_i %> </p>
+<% elsif @operation == "divide" %>
+  <p> <%= @number1.to_i / @number2.to_i %> </p>
+<% end %>
