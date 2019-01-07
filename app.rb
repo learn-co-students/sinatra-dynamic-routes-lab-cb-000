@@ -1,5 +1,5 @@
 require_relative 'config/environment'
-
+require_relative 'models/calculate'
 class App < Sinatra::Base
   # Write your code here!
   get '/reversename/:name' do
@@ -27,20 +27,7 @@ class App < Sinatra::Base
     @string = "#{params[:word1]} #{params[:word2]} #{params[:word3]} #{params[:word4]} #{params[:word5]}."
     "#{@string}"
   end
-  class Calc
-    def add(arg1, arg2)
-      sum = arg1 + arg2
-    end
-    def subtract(arg1, arg2)
-      difference = arg1 - arg2
-    end
-    def multiply(arg1, arg2)
-      product = arg1 * arg2
-    end
-    def divide(arg1, arg2)
-      quotient = arg1 / arg2
-    end
-  end
+
   get '/:operation/:number1/:number2' do
     @operation = params[:operation]
     @number1 = params[:number1].to_i
